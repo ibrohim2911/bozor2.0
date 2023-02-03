@@ -31,6 +31,7 @@ def msgsender(request):
     product[id]/
     orders/
     orders/[id]/
+    orders/send/
     admin/
 
     admin login: 
