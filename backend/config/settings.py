@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'rest_framework',
     'corsheaders',
     'products',
@@ -46,6 +48,11 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny'
     ]
+}
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'de9t7wlmx',
+    'API_KEY': '686113566548529',
+    'API_SECRET': 'w7WP02VKcjvBr4zsJELyKcyTPbM'
 }
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -134,6 +141,6 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-MEDIA_URL = '/uploads/'
-MEDIA_ROOT = str(BASE_DIR.joinpath('uploads'))
+MEDIA_URL = '/media/'  # or any prefix you choose
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
